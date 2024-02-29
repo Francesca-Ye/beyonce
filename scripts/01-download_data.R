@@ -11,7 +11,6 @@
 #### Workspace setup ####
 library(httr)
 library(knitr)
-library(tidyverse)
 
 #### Download data ####
 NASA <-
@@ -22,11 +21,5 @@ content(NASA)
 content(NASA)$explanation
 
 knitr::include_graphics(content(NASA)$url)
-
-
-
-#### Save data ####
-# [...UPDATE THIS...]
-# change the_raw_data to whatever name you assigned when you downloaded it.
 
          
