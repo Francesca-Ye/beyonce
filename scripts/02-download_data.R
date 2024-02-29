@@ -13,14 +13,16 @@ library(tidyverse)
 library(spotifyr)
 
 #### Download data ####
-
 beyonce <- get_artist_audio_features("beyonce")
 saveRDS(beyonce, "beyonce.rds")
+beyonce <- readRDS("beyonce.rds")
 
 
 
 #### Save data ####
-# [...UPDATE THIS...]
-# change the_raw_data to whatever name you assigned when you downloaded it.
+write_rds(
+  x = beyonce,
+  file = "~/beyonce/data/raw_data/beyonce.rds"
+)
 
 
