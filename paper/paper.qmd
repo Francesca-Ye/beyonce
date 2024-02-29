@@ -73,6 +73,34 @@ beyonce |>
   )
 ```
 
+## Fifth Harmony
+```{r}
+#| echo: false
+fifth_harmony <-
+  readRDS("~/beyonce/data/raw_data/fifth_harmony.rds")
+```
+
+```{r}
+#| label: fig-fifthharmony
+#| fig-cap: Valence of Fifth Harmony Albums Over Time
+#| echo: false
+#| fig-pos: "H"
+fifth_harmony <-
+  as_tibble(fifth_harmony)
+
+fifth_harmony |>
+  filter(album_name %in% c("Reflection", "7/27 (Deluxe)", "Fifth Harmony")) |> 
+  mutate(album_release_date = ymd(album_release_date)) |>
+  filter(album_release_date != "2017-10-29") |> 
+  ggplot(aes(x = album_name, y = valence)) +
+  geom_point(alpha = 0.5) +
+  theme_minimal() +
+  labs(x = "Album",
+       y = "Valence")
+  
+
+```
+
 \newpage
 
 \appendix
